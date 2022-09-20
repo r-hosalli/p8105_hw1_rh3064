@@ -4,10 +4,7 @@ subtitle: "Rahul Hosalli (rh3064)"
 output: html_document
 ---
 
-I'm an R Markdown document! 
-
 # Problem 1
-
 
 ```{r Problem_1}
 
