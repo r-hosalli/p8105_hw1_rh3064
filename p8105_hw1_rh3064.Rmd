@@ -12,7 +12,9 @@ library(tidyverse)
 
 # Problem 1
 
-The penguins data from the package `palmerpenguins` is loaded and described via
+### Part A: Data Loading and Summary
+
+The penguins data from the package `palmerpenguins` is loaded and described below.
 
 ```{r Problem_1}
 data("penguins", package = "palmerpenguins")
@@ -20,4 +22,14 @@ data("penguins", package = "palmerpenguins")
 skimr::skim(penguins)
 ```
 
-The penguins dataset contains `r ncol(penguins)` columns and `r nrow(penguins)` rows. The mean flipper length is `r penguins %>% pull(flipper_length_mm) %>% mean(na.rm=TRUE)`. 
+The penguins dataset contains `r ncol(penguins)` columns and `r nrow(penguins)` rows. Information about the variables including variable type and summary statistics are included in the output of the `skim()` function above.
+
+The mean flipper length is `r penguins %>% pull(flipper_length_mm) %>% mean(na.rm=TRUE)`.
+
+### Part B. Plot and Output
+
+```{r}
+ggplot(data = penguins, 
+       mapping = aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
+geom_point()
+```
