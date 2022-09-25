@@ -28,8 +28,31 @@ The mean flipper length is `r penguins %>% pull(flipper_length_mm) %>% mean(na.r
 
 ### Part B. Plot and Output
 
+The following code will produce a scatter plot of bill length (mm) on the x-axis and the flipper length (mm) on y. Penguins from different species have different colored points on the plot. The plot is outputted as a 10 X 7 .pdf in the project directory.
+
 ```{r}
-ggplot(data = penguins, 
-       mapping = aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
-geom_point()
+penguin_plot <- 
+  ggplot(data = penguins, 
+         mapping = aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
+  geom_point()
+
+ggsave("penguin_plot.pdf", penguin_plot, width = 10, height = 7)
+```
+
+# Problem 2
+
+## Part A: Dataframe Creation
+
+The following code will produce a tibble of size 4 X 10, containing a random sample of size n=10, drawn from a normal distribution, a logic vector indicating if a member of the sample is greater than 0, a character vector of size 10 and a factor vector of size 10 with 3 levels.
+
+```{r}
+
+prob_2 <- tibble(
+  numer_vec = rnorm(10),
+  logic_vec = numer_vec > 0,
+  charc_vec = c(paste("Example_", LETTERS[1:10], sep = "")),
+  fact_vec = cut(numer_vec, 3, labels = c("Low", "Med", "High"))
+)
+
+prob_2
 ```
