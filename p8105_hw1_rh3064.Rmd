@@ -56,3 +56,16 @@ prob_2 <- tibble(
 
 prob_2
 ```
+
+### Part B: Means Testing
+
+The next code chunk will be an attempt to take the mean of each column in `prob_2`. Some of these should not work, given that "taking the mean" of a character vector is nonsensical.
+
+```{r}
+mean(pull(prob_2, 1), na.rm = TRUE)
+mean(pull(prob_2, 2), na.rm = TRUE)
+mean(pull(prob_2, 3), na.rm = TRUE)
+mean(pull(prob_2, 4), na.rm = TRUE)
+```
+
+The mean of the numeric vector can be taken as it is all numbers. The mean of logic vector is taking, indicating that R assigns a value of 1 to TRUE and 0 to FALSE in order to calculate a mean. The 'mean' of the character and factor vectors could not be taken, which is expected.

@@ -614,16 +614,38 @@ prob_2</code></pre>
 <pre><code>## # A tibble: 10 × 4
 ##    numer_vec logic_vec charc_vec fact_vec
 ##        &lt;dbl&gt; &lt;lgl&gt;     &lt;chr&gt;     &lt;fct&gt;   
-##  1   -0.0713 FALSE     Example_A Med     
-##  2    0.905  TRUE      Example_B High    
-##  3   -2.45   FALSE     Example_C Low     
-##  4    1.96   TRUE      Example_D High    
-##  5    1.44   TRUE      Example_E High    
-##  6   -1.11   FALSE     Example_F Low     
-##  7    0.449  TRUE      Example_G Med     
-##  8   -0.454  FALSE     Example_H Med     
-##  9    0.358  TRUE      Example_I Med     
-## 10   -0.857  FALSE     Example_J Med</code></pre>
+##  1     0.202 TRUE      Example_A Med     
+##  2    -1.13  FALSE     Example_B Low     
+##  3     0.476 TRUE      Example_C High    
+##  4    -0.812 FALSE     Example_D Low     
+##  5    -1.44  FALSE     Example_E Low     
+##  6    -1.36  FALSE     Example_F Low     
+##  7     0.860 TRUE      Example_G High    
+##  8     1.58  TRUE      Example_H High    
+##  9    -1.82  FALSE     Example_I Low     
+## 10    -1.77  FALSE     Example_J Low</code></pre>
+<div id="part-b-means-testing" class="section level3">
+<h3>Part B: Means Testing</h3>
+<p>The next code chunk will be an attempt to take the mean of each
+column in <code>prob_2</code>. Some of these should not work, given that
+“taking the mean” of a character vector is nonsensical.</p>
+<pre class="r"><code>mean(pull(prob_2, 1), na.rm = TRUE)</code></pre>
+<pre><code>## [1] -0.5218436</code></pre>
+<pre class="r"><code>mean(pull(prob_2, 2), na.rm = TRUE)</code></pre>
+<pre><code>## [1] 0.4</code></pre>
+<pre class="r"><code>mean(pull(prob_2, 3), na.rm = TRUE)</code></pre>
+<pre><code>## Warning in mean.default(pull(prob_2, 3), na.rm = TRUE): argument is not numeric
+## or logical: returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>mean(pull(prob_2, 4), na.rm = TRUE)</code></pre>
+<pre><code>## Warning in mean.default(pull(prob_2, 4), na.rm = TRUE): argument is not numeric
+## or logical: returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<p>The mean of the numeric vector can be taken as it is all numbers. The
+mean of logic vector is taking, indicating that R assigns a value of 1
+to TRUE and 0 to FALSE in order to calculate a mean. The ‘mean’ of the
+character and factor vectors could not be taken, which is expected.</p>
+</div>
 </div>
 </div>
 
